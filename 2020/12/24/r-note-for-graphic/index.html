@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Hugo 0.79.1" />
+
+
+<title>R_Note_For_LinearModeling - A Hugo website</title>
+<meta property="og:title" content="R_Note_For_LinearModeling - A Hugo website">
+
+
+  <link href='/favicon.ico' rel='icon' type='image/x-icon'/>
+
+
+
+  
+
+
+
+
+
+
+
+
+<link href='//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css' rel='stylesheet' type='text/css' />
+
+
+
+<link rel="stylesheet" href="/css/fonts.css" media="all">
+<link rel="stylesheet" href="/css/main.css" media="all">
+
+
+
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <nav class="nav">
+  <a href="/" class="nav-logo">
+    <img src="/images/logo.png"
+         width="50"
+         height="50"
+         alt="Logo">
+  </a>
+
+  <ul class="nav-links">
+    
+    <li><a href="/about/">About</a></li>
+    
+    <li><a href="https://github.com/rstudio/blogdown">GitHub</a></li>
+    
+    <li><a href="https://twitter.com/rstudio">Twitter</a></li>
+    
+  </ul>
+</nav>
+
+      </header>
+
+
+<main class="content" role="main">
+
+  <article class="article">
+    
+    <span class="article-duration">2 min read</span>
+    
+
+    <h1 class="article-title">R_Note_For_LinearModeling</h1>
+
+    
+    <span class="article-date">2020-12-24</span>
+    
+
+    <div class="article-content">
+      
+
+
+<div id="section" class="section level46">
+<p></p>
+</div>
+<div id="chapter-2-基础绘图" class="section level1">
+<h1>Chapter 2 基础绘图</h1>
+</div>
+<div id="使用r自带的graphic绘图包" class="section level1">
+<h1>使用R自带的graphic绘图包</h1>
+<div id="section-1" class="section level46">
+<p></p>
+</div>
+</div>
+<div id="section-0-r_studio中plot窗口的简单设置" class="section level1">
+<h1>Section 0 R_Studio中plot窗口的简单设置</h1>
+<p>dev.new() #打开独立的图形显示窗口，此后每创建新的布局，会打开新窗口<br />
+dev.off() #关闭独立的图形显示窗口<br />
+options() #函数 包含：scipen = 科学记数法开始的位数；digits = 小数点位数；add.smooth = 平滑程度，等<br />
+library(beginr) #这个包可以调用“plot+参数()”函数，查询每种参数的设置技巧</p>
+</div>
+<div id="section-1-plot函数" class="section level1">
+<h1>Section 1 plot()函数</h1>
+<div id="绘制第一个简单图形" class="section level2">
+<h2>绘制第一个简单图形</h2>
+<pre class="r"><code>dose&lt;-c(20,30,40,45,60)  
+drugA&lt;-c(16,20,27,40,60)  
+plot(dose,drugA,type=&quot;b&quot;) </code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" width="672" />
+type参数表示绘图类型：b-带点的折线图，p-散点，l-仅线段，<br />
+c-线段+空白点，o-线段+点(穿过)，h-直方图，s-阶梯图</p>
+</div>
+</div>
+<div id="plot函数的图形参数见图表" class="section level1">
+<h1>plot()函数的图形参数，见图表</h1>
+<div id="通过参数设置绘制复杂图形" class="section level2">
+<h2>通过参数设置绘制复杂图形</h2>
+<pre class="r"><code>dose&lt;-c(20,30,40,45,60)
+drugA&lt;-c(16,20,27,40,60)
+drugB&lt;-c(15,18,25,31,40)
+plot(dose,drugA,pch=5,type=&quot;b&quot;,cex=1.5,lty=1,lwd=2,col=&quot;red&quot;, #设置线型
+     col.axis=&quot;blue&quot;,col.lab=&quot;green&quot;,col.main=&quot;pink&quot;,col.sub=&quot;orange&quot;,fg=&quot;linen&quot;,bg=&quot;SeaGreen1&quot;, #设置颜色
+     cex.axis=1.5,cex.lab=2,cex.main=2,cex.sub=1.5, #设置标签缩放倍数
+     font.axis=2,font.lab=1,font.main=4,font.sub=2,ps=2,family=&quot;serif&quot;, #设置标签的字体样式
+     pin=c(2,1),mai=c(1,0.5,2,0.2)) #设置图形的尺寸</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+</div>
+</div>
+<div id="通过参数设置图形的标题坐标轴信息" class="section level1">
+<h1>通过参数设置图形的标题、坐标轴信息</h1>
+<pre class="r"><code>dose&lt;-c(20,30,40,45,60)
+drugA&lt;-c(16,20,24,27,45)
+plot(dose,drugA,type=&quot;b&quot;,
+     col=&quot;red&quot;,lty=2,pch=2,lwd=2,
+     main=&quot;Clinical Trials for DrugA&quot;, #主标题
+     sub=&quot;This is hypothetical data&quot;, #副标题
+     xlab=&quot;Dosage&quot;,ylab=&quot;Drug Response&quot;, #轴标题
+     xlim=c(10,60),ylim=c(0,70))  #轴长</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+</div>
+<div id="通过其他函数绘制自定义标题和坐标轴" class="section level1">
+<h1>通过其他函数绘制自定义标题和坐标轴</h1>
+<pre class="r"><code>  #par()函数进行图形界面设置
+  #lines()、abline()等函数在当前绘图坐标系中增绘图形
+  #axis()、mtext()、title()等在当前绘图坐标系中添加绘图信息
+x&lt;-c(1:10)
+y&lt;-x
+z&lt;-10/x
+opar&lt;-par(no.readonly=TRUE)                               #设置可以写入的环境
+par(mar=c(5,4,4,8)+0.1)                                   #增加边界大小
+plot(x,y,type=&quot;b&quot;,pch=21,yaxt=&quot;n&quot;,lty=3,ann=FALSE)        #绘制x对y的图形
+lines(x,z,type=&quot;b&quot;,pch=22,col=&quot;blue&quot;,lty=2)               #绘制x对1/x的线
+axis(2,at=x,labels=x,col.axis=&quot;red&quot;,las=2)                #绘制针对y=x自定义坐标轴
+axis(4,at=z,labels=round(z,digits=2),col.axis=&quot;blue&quot;,las=2,cex.axis=0.7,tck=-0.01) #绘制针对y=1/x的坐标轴
+mtext(&quot;y=1/x&quot;,side=4,line=3,cex.lab=1,las=2,col=&quot;blue&quot;)   #添加标题
+title(&quot;An Example of Creative Axes&quot;,
+      xlab=&quot;X Value&quot;,
+      ylab=&quot;Y=X&quot;)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<pre class="r"><code>par(opar)  #还原默认环境（意味着再输入其他语句，不能直接修改当前绘图）</code></pre>
+</div>
+<div id="添加参考线图例等需要用到hmisc包此包一并打包了ggplot2包" class="section level1">
+<h1>添加参考线、图例等，需要用到“Hmisc”包,此包一并打包了“ggplot2”包</h1>
+<pre class="r"><code>dose&lt;-c(20,30,40,45,60)
+drugA&lt;-c(16,20,27,40,60)
+drugB&lt;-c(15,20,27,31,40)
+opar&lt;-par(no.readonly=TRUE)
+par(lwd=2,cex=1.5,font.lab=2)
+plot(dose,drugA,type=&quot;b&quot;,pch=15,lty=1,col=&quot;red&quot;,ylim=c(0,60),main=&quot;Drug A VS Drug B&quot;,xlab=&quot;Drug Dosage&quot;,ylab=&quot;Drug Response&quot;)
+lines(dose,drugB,type=&quot;b&quot;,pch=17,lty=2,col=&quot;blue&quot;)
+abline(h=c(30),lwd=1.5,lty=2,col=&quot;gray&quot;)
+library(Hmisc)</code></pre>
+<pre><code>## Loading required package: lattice</code></pre>
+<pre><code>## Loading required package: survival</code></pre>
+<pre><code>## Loading required package: Formula</code></pre>
+<pre><code>## Loading required package: ggplot2</code></pre>
+<pre><code>## 
+## Attaching package: &#39;Hmisc&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     format.pval, units</code></pre>
+<pre class="r"><code>minor.tick(nx=3,ny=3,tick.ratio=0.5)
+legend(&quot;topleft&quot;,cex=0.5,inset=0.05,title=&quot;Drug Type&quot;,c(&quot;A&quot;,&quot;B&quot;),lty=c(1,2),pch=c(15,17),col=c(&quot;red&quot;,&quot;blue&quot;))#添加图例</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" width="672" /></p>
+<pre class="r"><code>par(opar)</code></pre>
+</div>
+<div id="给每个数据标点添加文本信息" class="section level1">
+<h1>给每个数据标点添加文本信息</h1>
+<div id="以添加行名为例" class="section level2">
+<h2>以添加行名为例</h2>
+<pre class="r"><code>attach(mtcars)  #直接缓存数据集，后续不需要反复输入集名</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
+## 
+##     mpg</code></pre>
+<pre class="r"><code>plot(wt,mpg,main=&quot;Mileage vs Car Weight&quot;,               
+     xlab=&quot;Weight&quot;,ylab=&quot;Mileage&quot;,
+     pch=18,col=&quot;blue&quot;)
+text(wt,mpg,row.names(mtcars),cex=0.6,pos=4,col=&quot;red&quot;) #给数据点添加&quot;行名&quot;标签</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>detach(mtcars) #结束缓存</code></pre>
+</div>
+</div>
+<div id="section-2-一页多图-图形的组合" class="section level1">
+<h1>Section 2 一页多图 / 图形的组合</h1>
+<div id="方法1通过par函数来设置图形区域使用的参数为mfrow" class="section level2">
+<h2>方法1：通过par()函数来设置图形区域，使用的参数为mfrow</h2>
+<pre class="r"><code>attach(mtcars)</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
+## 
+##     mpg</code></pre>
+<pre class="r"><code>opar &lt;-par(no.readonly=TRUE)
+par(mfrow=c(2,2)) #绘制2*2四个图形区域，按行分布；mfcol则按列分布
+plot(wt,mpg,main=&quot;Scatterplot of wt vs mpg&quot;)
+plot(wt,disp,main=&quot;Scatterplot of wt vs disp&quot;)
+hist(wt,main=&quot;Histogram of wt&quot;)  #直方图
+boxplot(wt,main=&quot;Boxplot of wt&quot;) #箱线图</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-1.png" width="672" /></p>
+<pre class="r"><code>par(opar)
+detach(mtcars)
+  #例2：3*1图形组合
+attach(mtcars)</code></pre>
+<pre><code>## The following object is masked from package:ggplot2:
+## 
+##     mpg</code></pre>
+<pre class="r"><code>opar&lt;-par(no.readonly=TRUE)
+par(mfrow=c(3,1))
+hist(wt)
+hist(mpg)
+hist(disp)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-7-2.png" width="672" /></p>
+<pre class="r"><code>par(opar)
+detach(mtcars)</code></pre>
+</div>
+<div id="方法2通过layout函数来精确控制布局" class="section level2">
+<h2>方法2：通过layout()函数来精确控制布局</h2>
+<pre class="r"><code># attach(mtcars)
+# layout(matrix(c(1,1,2,3),2,2,byrow=TRUE), #一个2*2布局，但是头两个区域由图形1占据
+#        widths=c(1.5,1),heights=c(1,2))
+# hist(wt)
+# hist(mpg)
+# hist(disp)
+# detach(mtcars)</code></pre>
+<p>第二行中左边图形的宽度是右边的1.5倍，第二行的图形高度是第一行的2倍</p>
+</div>
+</div>
+<div id="section-3-详述其他图形绘制" class="section level1">
+<h1>Section 3 详述其他图形绘制</h1>
+<div id="直方图绘制" class="section level2">
+<h2>直方图绘制</h2>
+<pre class="r"><code>par(mfrow=c(2,2))
+barplot(women$height)
+#height是一个向量或者矩阵，当其为向量时，按其中数据绘制直方图
+a&lt;-c(1,2,3,4,5,6)
+#垂直直方图
+barplot(a,main=&quot;Simple Bar Plot&quot;,xlab=&quot;Improtved&quot;,ylab=&quot;Frequency&quot;)
+#水平直方图
+barplot(a,main=&quot;Simple Bar Plot&quot;,xlab=&quot;Improtved&quot;,ylab=&quot;Frequency&quot;,horiz=TRUE)</code></pre>
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>#barplot(height)
+#height为矩阵时，绘制的是堆砌条形图或分组条形图
+library(vcd)</code></pre>
+<pre><code>## Loading required package: grid</code></pre>
+<pre class="r"><code>counts&lt;-table(Arthritis$Improved,Arthritis$Treatment)</code></pre>
+</div>
+</div>
+
+    </div>
+  </article>
+
+  
+
+
+</main>
+
+      <footer class="footer">
+        <ul class="footer-links">
+          <li>
+            <a href="/index.xml" type="application/rss+xml" target="_blank">RSS feed</a>
+          </li>
+          <li>
+            <a href="https://gohugo.io/" class="footer-links-kudos">Made with <img src="/images/hugo-logo.png" alt="Img link to Hugo website" width="22" height="22"></a>
+          </li>
+        </ul>
+      </footer>
+
+    </div>
+    
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/yaml.min.js"></script>
+<script>hljs.configure({languages: []}); hljs.initHighlightingOnLoad();</script>
+
+
+
+    
+<script src="/js/math-code.js"></script>
+<script async src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+
+    
+  </body>
+</html>
+

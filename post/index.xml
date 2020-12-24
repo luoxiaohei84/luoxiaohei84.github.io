@@ -6,14 +6,21 @@
     <description>Recent content in Posts on A Hugo website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>R_note</title>
-      <link>/2020/12/23/r-note/</link>
-      <pubDate>Wed, 23 Dec 2020 00:00:00 +0000</pubDate>
+      <title>R_Note_For_LinearModeling</title>
+      <link>/2020/12/24/r-note-for-graphic/</link>
+      <pubDate>Thu, 24 Dec 2020 00:00:00 +0000</pubDate>
       
-      <guid>/2020/12/23/r-note/</guid>
-      <description>This is a note test!</description>
+      <guid>/2020/12/24/r-note-for-graphic/</guid>
+      <description>Chapter 2 基础绘图使用R自带的graphic绘图包
+Section 0 R_Studio中plot窗口的简单设置dev.new() #打开独立的图形显示窗口，此后每创建新的布局，会打开新窗口
+dev.off() #关闭独立的图形显示窗口
+options() #函数 包含：scipen = 科学记数法开始的位数；digits = 小数点位数；add.smooth = 平滑程度，等
+library(beginr) #这个包可以调用“plot+参数()”函数，查询每种参数的设置技巧
+Section 1 plot()函数绘制第一个简单图形dose&amp;lt;-c(20,30,40,45,60) drugA&amp;lt;-c(16,20,27,40,60) plot(dose,drugA,type=&amp;quot;b&amp;quot;) type参数表示绘图类型：b-带点的折线图，p-散点，l-仅线段，
+c-线段+空白点，o-线段+点(穿过)，h-直方图，s-阶梯图
+plot()函数的图形参数，见图表通过参数设置绘制复杂图形dose&amp;lt;-c(20,30,40,45,60)drugA&amp;lt;-c(16,20,27,40,60)drugB&amp;lt;-c(15,18,25,31,40)plot(dose,drugA,pch=5,type=&amp;quot;b&amp;quot;,cex=1.5,lty=1,lwd=2,col=&amp;quot;red&amp;quot;, #设置线型col.axis=&amp;quot;blue&amp;quot;,col.lab=&amp;quot;green&amp;quot;,col.main=&amp;quot;pink&amp;quot;,col.sub=&amp;quot;orange&amp;quot;,fg=&amp;quot;linen&amp;quot;,bg=&amp;quot;SeaGreen1&amp;quot;, #设置颜色cex.axis=1.5,cex.lab=2,cex.main=2,cex.sub=1.5, #设置标签缩放倍数font.axis=2,font.lab=1,font.main=4,font.sub=2,ps=2,family=&amp;quot;serif&amp;quot;, #设置标签的字体样式pin=c(2,1),mai=c(1,0.5,2,0.2)) #设置图形的尺寸通过参数设置图形的标题、坐标轴信息dose&amp;lt;-c(20,30,40,45,60)drugA&amp;lt;-c(16,20,24,27,45)plot(dose,drugA,type=&amp;quot;b&amp;quot;,col=&amp;quot;red&amp;quot;,lty=2,pch=2,lwd=2,main=&amp;quot;Clinical Trials for DrugA&amp;quot;, #主标题sub=&amp;quot;This is hypothetical data&amp;quot;, #副标题xlab=&amp;quot;Dosage&amp;quot;,ylab=&amp;quot;Drug Response&amp;quot;, #轴标题xlim=c(10,60),ylim=c(0,70)) #轴长通过其他函数绘制自定义标题和坐标轴 #par()函数进行图形界面设置#lines()、abline()等函数在当前绘图坐标系中增绘图形#axis()、mtext()、title()等在当前绘图坐标系中添加绘图信息x&amp;lt;-c(1:10)y&amp;lt;-xz&amp;lt;-10/xopar&amp;lt;-par(no.</description>
     </item>
     
     <item>
